@@ -2,6 +2,11 @@ package tarjetas;
 
 import java.util.ArrayList;
 
+/**
+ * @author Adrian Arpi
+ * @since 28/04/2020
+ * @version 1.0
+ */
 public class Cuenta {
 	protected String mNumero;
 	protected String mTitular;
@@ -13,6 +18,11 @@ public class Cuenta {
 		mMovimientos = new ArrayList<Movimiento>();
 	}
 
+	/**
+	 * @param x
+	 * @throws Exception
+	 *  
+	 */
 	public void ingresar(double x) throws Exception {
 		if (x <= 0)
 			throw new Exception("No se puede ingresar una cantidad negativa");
@@ -33,6 +43,12 @@ public class Cuenta {
 		this.mMovimientos.add(m);
 	}
 
+	/**
+	 * 
+	 * @param concepto
+	 * @param x
+	 * @throws Exception
+	 */
 	public void ingresar(String concepto, double x) throws Exception {
 		if (x <= 0)
 			throw new Exception("No se puede ingresar una cantidad negativa");
@@ -42,6 +58,12 @@ public class Cuenta {
 		this.mMovimientos.add(m);
 	}
 
+	/**
+	 * 
+	 * @param concepto
+	 * @param x
+	 * @throws Exception
+	 */
 	public void retirar(String concepto, double x) throws Exception {
 		if (x <= 0)
 			throw new Exception("No se puede retirar una cantidad negativa");
@@ -52,7 +74,11 @@ public class Cuenta {
 		m.setmImporte(-x);
 		this.mMovimientos.add(m);
 	}
-
+	
+	/**
+	 * 
+	 * @return Este metodo devuelve el saldo
+	 */
 	public double getSaldo() {
 		double r = 0.0;
 		for (int i = 0; i < this.mMovimientos.size(); i++) {
@@ -62,6 +88,10 @@ public class Cuenta {
 		return r;
 	}
 
+	/**
+	 * 
+	 * @param m
+	 */
 	public void addMovimiento(Movimiento m) {
 		mMovimientos.add(m);
 	}
